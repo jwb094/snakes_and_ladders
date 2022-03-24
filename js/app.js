@@ -16,15 +16,18 @@ displayStepsandCounters();
 function displayStepsandCounters(){
     let Steps =document.querySelectorAll('.box');
     Steps.forEach((step,i,a) => {
-        console.log(i);
+        //console.log(i);
         step.innerHTML = `<h6>${100 - i}</h6>`;     
         if(i == 99){
             step.innerHTML =`<div id="P1"><p>P1</p></div><div id="CPU">CPU</div>`;
         } 
     });
-    const thirdLink = document.querySelector(".box:nth-child(3)");
-   
 
+  
+
+    const everyThirdElements = document.querySelectorAll("div.box:nth-child(n)");
+    everyThirdElements.item(4).innerHTML ="<div id='P1'><p>P1</p></div";
+    console.log(everyThirdElements.item(4));
 
 }
 
@@ -48,6 +51,7 @@ function playerTurn(){
 }
 
 function computerTurn(){
+    let prev_position = playerposition;
     let dice = diceRoll(computerturn);
     computerturn = computerturn + dice;
     positionMove();
@@ -60,17 +64,22 @@ function computerTurn(){
 function positionMove(player,NewPos){
     //remove element
     setInterval(function() {
-        document.getElementById('P1').remove()
+        document.getElementById(`${player}`).remove()
     },3000);
     //create new element in new psoition
     setInterval(function(){
        let new_position =  document.createElement("div");
 
        // and give it some content
-        const newContent = document.createTextNode("P1");
+        const newContent = document.createElement("p");
 
+        newContent.innerHTML = player === "P1" ? "P1" : "CPU";
         // add the text node to the newly created div
         new_position.appendChild(newContent);
+        console.log(new_position);
+
+       // const currentDiv = document.getElementById("board");
+        //currentDiv.appendChild(new_position);
 
     },3000)
 }
