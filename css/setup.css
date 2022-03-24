@@ -14,7 +14,18 @@
      height: 90vmin;
      width: 100vmin;
  }
-
+ #P1{
+     border-radius: 50%;
+     background-color: aqua;
+     width: 25%;
+     height: 25%;
+ }
+ #CPU{
+    border-radius: 50%;
+    background-color:brown;
+    width: 25%;
+    height: 25%;
+}
  .box{ 
         float:left;
         height: 9.601vmin;
@@ -32,4 +43,30 @@
     .black {
         background-color: black;
         color:white;
+    }
+
+    .ladder{
+        height: 2px;
+        background: green;
+        position: absolute;
+    }
+    .ladder#ladder1{
+        width: 100px;
+        top: 60%;
+        left: 30px;
+        transform: translate(59%, -99%);
+        rotate: 90deg;
+    }
+    .ladder#ladder2{
+        width: 43px;
+        top: 69%;
+        transform: translate(900%, 49%);
+        rotate: 15deg;
+    }
+
+    .ladder#ladder3{
+        width: 43px;
+        top: 69%;
+        transform: translate(900%, 49%);
+        rotate: 15deg;
     }
